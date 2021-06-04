@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+
+  	<script>
+  		function preview(){
+  			frame.src=URL.createObjectURL(event.target.files[0]);
+  		}
+  	</script>
+
+	<style>
+
+body{
+	font-family: arial;
+}
+
+.main-container{
+	width: 100%;
+}
+
+
+#form{
+	margin-left: 400px;
+	margin-top:80px;
+}
+
+::-webkit-file-upload-button {
+	background: #0080ff;
+	color: white;
+	border-radius: 10%;
+}
+
+.form-btn{
+	padding: 7px 15px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 12%;
+}
+.jumbotron{
+	background-size: cover;
+	background-image: url("static/img/landmark1.jpg");
+	color: black;
+	padding: 20px;
+	height: 500px;
+}
+
+#prediction{
+	padding: 150px;
+}
+
+	</style>
+
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="jumbotron">
+					<h2 class="display-4">Digital Travel Guide</h2>
+				</div>
+			</div>
+		</div>
+		<p>Upload your photos here!!</p>
+		<hr>
+		<div class="row">
+			<div class="col-md-3 offset-3">
+				<div class="newdiv">
+				<form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
+	                <input class="form-btn" type=file name=photo onchange="preview()">
+	                <br>
+	                <br>
+	                <img id="frame" src="" width="150px" height="150px"/>
+	            	<br>
+	            	<br>
+	                <input class="btn btn-primary" type="submit">
+	            </form>
+				</div>
+            </div>
+
+			<div class="col-md-3" id="prediction">
+				{{prediction_text}}
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>

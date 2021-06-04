@@ -1,0 +1,33 @@
+
+body{
+	font-family: arial;
+}
+
+
+
+.main-container{
+	width: 100%;
+}
+
+
+#form{
+	margin-left: 400px;
+	margin-top:80px;
+}
+
+::-webkit-file-upload-button {
+  background: #6600FF;
+  color: white;
+  border-radius: 10%;
+}
+.form-btn{
+	padding: 7px 15px;
+	margin: 4px 2px;
+  	cursor: pointer;
+  	border-radius: 12%;
+}
+.jumbotron{
+	 background-size: cover;
+	 background-image: url("taj mahal.jpg");
+	 color: white;
+}
